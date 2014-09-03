@@ -1,20 +1,74 @@
-
 var VenueView = function(els) {
-  this.saveSpecButton = els.saveSpecButton;
+  this.els = els;
+
+  this.specButtonClicked = new Event(this);
+
+  var _this = this;
+
+  this.els.saveSpecButton.click( function(e){
+    e.preventDefault();
+    console.log(e)
+    _this.specButtonClicked.notify()
+  })
 }
 
 VenueView.prototype = {
   init : function() {
-    this.saveSpecFormListen();
+    // this.saveSpecFormListen();
   },
-  saveSpecFormListen : function() {
-    var _this = this;
-    _this.saveSpecButton.click(function(e) {
-      e.preventDefault();
-      _this.addNewSpecFields(0, spec_fields)
+  // specButtonClick : function() {
+  //   var _this = this;
+  //   _this.saveSpecButton.click(function(e) {
+  //     e.preventDefault();
+
+  //     // get the spec text fields out an into an attrObj
+
+  //     _this.translateSpecFieldsToAttrObj();
+
+      // instantiate new SpecModel with attrObj
+      // VenueModel.addSpec(new SpecModel)
+
+      // addSpec fires  event notification
+
+      // Controller reads model, and fires notification to update View
+        //to append html representation of the new SpecModel to the DOM on addSpec - also clear form fields for spec creation
+
+
+
+      // _this.addNewSpecFields(0, spec_fields)
       // console.log(e);
-    });
+  //   });
+  // },
+  translateSpecFieldsToAttrObj : function(){
+    var type = $('#equipType').val();
+    var desc = $('#desc').val();
+    var func = $('#functional').val();
+    specAttrs = {
+      'equipmentType' : type,
+      'description' : desc,
+      'functional' : func
+    }
+    return specAttrs;
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   addNewSpecFields : function(specNum, fieldsObj) {
 
     var _this = this;

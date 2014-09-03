@@ -3,23 +3,24 @@
   <input type="text" name="venue[name]">
   <br><h3>Add Specs to the Backline</h3>
 
-  <button class="saveSpec">Save Spec</button>
-
   <div class="specsContainer">
-    <div id="specNum">
-      <br><label for="specs[equipment_type]">Equipment Type</label>
-      <br><input type="text" name="specs[equipment_type]">
-      <br><label for="specs[description]">Equipment Description</label>
-      <br><input type="text" name="specs[description]">
-
-
-      <br><label for="specs[functional]">Does it Work?</label>
-      <br><select name="specs[functional]">
-        <option value="true">True</option>
-        <option value="false">False</option>
-      </select>
-    </div>
   </div>
+
+  <div id="specForm">
+    <br><label for="spec[equipment_type]">Equipment Type</label>
+    <br><input id="equipType" type="text" name="spec[equipment_type]">
+    <br><label for="spec[description]">Equipment Description</label>
+    <br><input id="desc" type="text" name="spec[description]">
+
+
+    <br><label for="spec[functional]">Does it Work?</label>
+    <br><select id="functional" name="spec[functional]">
+      <option value="true">True</option>
+      <option value="false">False</option>
+    </select>
+    <button class="saveSpec">Save Spec</button>
+  </div>
+
 
   <br><input type="submit" value="Add Venue">
 </form>
