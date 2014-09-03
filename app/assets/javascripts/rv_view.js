@@ -1,15 +1,15 @@
 
 var VenueView = function(els) {
-  this.addSpecButton = els.addSpecButton;
+  this.saveSpecButton = els.saveSpecButton;
 }
 
 VenueView.prototype = {
   init : function() {
-    this.addSpecFormListen();
+    this.saveSpecFormListen();
   },
-  addSpecFormListen : function() {
+  saveSpecFormListen : function() {
     var _this = this;
-    _this.addSpecButton.click(function(e) {
+    _this.saveSpecButton.click(function(e) {
       e.preventDefault();
       _this.addNewSpecFields(0, spec_fields)
       // console.log(e);
