@@ -11,6 +11,7 @@ VenueView.prototype = {
     var _this = this;
     _this.addSpecButton.click(function(e) {
       e.preventDefault();
+      _this.addNewSpecFields(0, spec_fields)
       // console.log(e);
     });
   },
@@ -84,41 +85,9 @@ VenueView.prototype = {
 }
 
 
-var VenueModel = function(spec_fields) {
-  this.spec_fields = spec_fields;
-  this.name;
-  this.specs;
-}
-
-var VenueController = function(model, view) {
-  this.model = model;
-  this.view = view;
-
-}
-
-VenueController.prototype ={
-  init : function() {
-    this.view.init()
-  }
-}
 
 
-$(document).ready(function () {
 
-  vView = new VenueView( {
-    addSpecButton : $('.addSpec')
-  } );
 
-   spec_fields = {
-    'equipment_type' : 'string',
-    'description' : 'textarea',
-    'functional' : 'boolean'
-  }
 
-  vModel = new VenueModel(spec_fields);
-
-  vController = new VenueController(vModel, vView);
-
-  vController.init();
-})
 
