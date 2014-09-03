@@ -6,7 +6,10 @@ var VenueController = function(model, view) {
   this.view.specButtonClicked.attach(function(){
     _this.addSpec();
   });
-
+  this.view.saveButtonClicked.attach(function(){
+    _this.view.addVenueName();
+    _this.postToBackEnd();
+  });
 }
 
 VenueController.prototype ={
@@ -18,7 +21,9 @@ VenueController.prototype ={
     var attrObj = _this.view.translateSpecFieldsToAttrObj();
     var newSpec = new SpecModel(attrObj);
     _this.model.addSpec(newSpec);
-    // console.log(_this.model);
+  },
+  postToBackEnd : function(){
+    var _this = this;
+    _this.model.prepJson();
   }
-
 }

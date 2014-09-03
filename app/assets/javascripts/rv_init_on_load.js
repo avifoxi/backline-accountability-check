@@ -2,16 +2,9 @@ $(document).ready(function () {
 
   vModel = new VenueModel();
   vView = new VenueView( {
-    saveSpecButton : $('.saveSpec')
+    saveSpecButton : $('.saveSpec'),
+    saveAllButton : $('.saveAll')
   }, vModel );
-
-  //  spec_fields = {
-  //   'equipment_type' : 'string',
-  //   'description' : 'textarea',
-  //   'functional' : 'boolean'
-  // }
-
-
 
   vController = new VenueController(vModel, vView);
 
