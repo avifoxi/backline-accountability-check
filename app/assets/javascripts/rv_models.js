@@ -1,6 +1,8 @@
 var VenueModel = function() {
   this.name;
   this.specs = [];
+  this.specAdded = new Event(this);
+
 }
 
 VenueModel.prototype = {
@@ -9,6 +11,7 @@ VenueModel.prototype = {
   },
   addSpec : function(spec){
     this.specs.push(spec);
+    this.specAdded.notify();
   }
 }
 

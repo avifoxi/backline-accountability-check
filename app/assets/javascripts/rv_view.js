@@ -1,4 +1,5 @@
-var VenueView = function(els) {
+var VenueView = function(els, model) {
+  this.model = model;
   this.els = els;
 
   this.specButtonClicked = new Event(this);
@@ -7,9 +8,13 @@ var VenueView = function(els) {
 
   this.els.saveSpecButton.click( function(e){
     e.preventDefault();
-    console.log(e)
+    // console.log(e)
     _this.specButtonClicked.notify()
   })
+
+  this.model.specAdded.attach(function(){
+    _this.appendNewSpecToDOM();
+  });
 }
 
 VenueView.prototype = {
@@ -49,6 +54,12 @@ VenueView.prototype = {
       'functional' : func
     }
     return specAttrs;
+  },
+  appendNewSpecToDOM : function(){
+    var _this = this;
+    var specList = _this.model.specs;
+    var newSpec = specList[specList.length - 1];
+    console.log(newSpec);
   },
 
 
