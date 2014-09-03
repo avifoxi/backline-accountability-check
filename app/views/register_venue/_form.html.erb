@@ -1,0 +1,19 @@
+<form id="info" action="/register" method="post">
+  <label for="venue[name]">Venue Name</label>
+  <input type="text" name="venue[name]">
+  <br><h3>Add Specs to the Backline</h3>
+  <button class="addSpec">New Spec</button>
+  <br><label for="specs[equipment_type]">Equipment Type</label>
+  <br><input type="text" name="specs[equipment_type]">
+  <br><label for="specs[description]">Equipment Description</label>
+  <br><input type="text" name="specs[description]">
+
+
+  <br><label for="specs[functional]">Does it Work?</label>
+  <br><select name="specs[functional]">
+    <option value="true">True</option>
+    <option value="false">False</option>
+  </select>
+
+  <br><input type="submit" value="Add Venue">
+</form>

@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 describe "the venue registration process", :type => :feature do
-  before :each do
-    User.make(:email => 'test@testerson.com', :password => 'password', :name => 'Grarfield')
-  end
 
-  scenario "valid user fills in venue name, backline with specs" do
+  scenario "user fills in venue name, backline with specs, and submits" do
     visit '/register'
-    within("#register") do
-      fill_in 'Venue Name', :with => 'The Knitting Factory'
-      fill_in 'Equipment Type', :with => 'Guitar Amp'
-      fill_in 'Equipment Description', :with => 'A Marshall Poop'
-      select 'true', :from => "Does it work?"
+
+    expect(page).to have_content('Register Venue')
+
+    within("#info") do
+      fill_in 'venue[name]', :with => 'The Knitting Factory'
+      fill_in 'specs[0][equipment_type]', :with => 'Guitar Amp'
+      fill_in 'specs[0][description]', :with => 'A Marshall Poop'
       click_button 'Add Venue'
     end
     expect(page).to have_content 'The Knitting Factory'
