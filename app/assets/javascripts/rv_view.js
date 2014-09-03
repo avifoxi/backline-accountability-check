@@ -60,6 +60,20 @@ VenueView.prototype = {
     var specList = _this.model.specs;
     var newSpec = specList[specList.length - 1];
     console.log(newSpec);
+    var html = _this.buildSpecUL(newSpec);
+    $('.specsContainer').append(html);
+    console.log(specList);
+  },
+  buildSpecUL : function(spec){
+    var html;
+    html = '<ul><li>Equipment Type: ' +
+           spec.equipmentType +
+           '</li><li>Description: ' +
+           spec.description +
+           '</li><li>Does it work?: ' +
+           spec.functional +
+           '</li></ul>'
+    return html;
   },
 
 
