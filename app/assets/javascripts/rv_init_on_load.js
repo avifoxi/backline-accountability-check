@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   vView = new VenueView( {
-    addSpecButton : $('.addSpec')
+    saveSpecButton : $('.saveSpec')
   } );
 
   //  spec_fields = {
